@@ -67,7 +67,11 @@ def get_category_popularity(menu_data):
 
     return category_totals
      
+def analyze_menu(menu_data):
+    most_profitable_dish = find_most_profitable_dish(menu_data)
+    main_course_dishes = get_dishes_in_category(menu_data, 'Main Course')
+    category_summary = get_category_popularity(menu_data)
+    return (most_profitable_dish, main_course_dishes, category_summary)
 
-category_tot = get_category_popularity(menu_data)
-category_tot.sort()
-print((famous_dish, same_category, category_tot  ))
+result = analyze_menu(menu_data)
+print(result)
